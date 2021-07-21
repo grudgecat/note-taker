@@ -1,6 +1,5 @@
 const express = require('express');
-const path = require('path');
-const fs = require('fs');
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -9,13 +8,16 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//results of the data parsing from client with be stored in req.body, to do post(create new entry)
+// or put(search for existing entry and update according to id) request
+
 app.use(express.static('public'));
 
-//set up routes
-app.get('/', (req, res) => 
+app.use(require("./routes/html.js"))
+app.use(require("./routes/api.js"))
 
-app.get('/', (req, res) => 
 
-app.get('/', (req, res) => 
+
+
 
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
